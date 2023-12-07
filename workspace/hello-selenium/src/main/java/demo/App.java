@@ -21,8 +21,9 @@ public class App {
 		WebElement titolo = driver.findElement(By.id("titolo"));
 		System.out.println("Il titolo è: " + titolo.getText());
 		
+		//driver.findElement(By.xpath("//*[@id=\"titolo\"]"));
 		
-		driver.quit();
+		//driver.quit();
 		//driver.close();
 	}
 
