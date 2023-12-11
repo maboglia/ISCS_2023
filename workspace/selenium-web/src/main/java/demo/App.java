@@ -17,48 +17,30 @@ public class App {
 		
 		WebDriver driver = new ChromeDriver();
 		//setto la propr di sistema
-		System.setProperty("webdriver.chrome.driver", "chromedriver");
+		//System.setProperty("webdriver.chrome.driver", "chromedriver");
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //		driver.get("https://github.com/maboglia/Fondamenti/blob/master/022_DOM.md");
-		driver.get("http://localhost:8080/selenium-web/index.jsp");
+		driver.get("http://localhost:8080/selenium-web/logindemo");
 		
-		WebElement bottone = driver.findElement(By.id("btn"));
-		WebElement input = driver.findElement(By.id("testo"));
-		input.sendKeys("prova");
-		bottone.click();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
-		wait.until(ExpectedConditions.alertIsPresent());
-		Alert fintoAlert = driver.switchTo().alert();
+		WebElement usernameTxt = driver.findElement(By.cssSelector("body > form > input[type=text]:nth-child(1)"));
+		WebElement passwordTxt = driver.findElement(By.cssSelector("body > form > input[type=password]:nth-child(3)"));
+		WebElement bottone = driver.findElement(By.cssSelector("body > form > input[type=submit]:nth-child(5)"));
+
 		
-		
-		fintoAlert.sendKeys("bene");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		fintoAlert.accept();
-//		if (fintoAlert.getText().equals("fung")) {
-//		} else {
-//			fintoAlert.dismiss();
-//		}
-		
-//		List<WebElement> titoliH2 = driver.findElements(By.tagName("h2"));
-//		
-//		for (WebElement webElement : titoliH2) {
-//			System.out.println(webElement.getText());
-//		}
-//		
-		
-		
+		usernameTxt.sendKeys("mauro");
+		passwordTxt.sendKeys("1234");
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		bottone.click();
+		
+
 		
 		driver.quit();
 		
