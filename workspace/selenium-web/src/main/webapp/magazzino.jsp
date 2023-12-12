@@ -1,29 +1,35 @@
+<%@page import="model.Maglia"%>
+<%@page import="java.util.List"%>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Colore</th>
+      <th scope="col">Scritta</th>
+      <th scope="col">Taglia</th>
+      <th scope="col">Prezzo</th>
     </tr>
   </thead>
   <tbody>
+  
+  
+  <% List<Maglia> maglie = (List<Maglia>) request.getAttribute("maglie"); %>
+  
+  
+  <% for(Maglia m :  maglie ){ %>
+  
+  
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><%= m.getColore() %></td>
+      <td><%= m.getScritta() %></td>
+      <td><%= m.getTaglia() %></td>
+      <td><%= m.getPrezzo() %></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    
+  <% } %>  
+    
+    
+   
   </tbody>
 </table>

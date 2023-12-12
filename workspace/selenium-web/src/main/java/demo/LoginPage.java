@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class App {
+public class LoginPage {
 
 	public static void main(String[] args) {
 		
@@ -23,13 +23,14 @@ public class App {
 //		driver.get("https://github.com/maboglia/Fondamenti/blob/master/022_DOM.md");
 		driver.get("http://localhost:8080/selenium-web/logindemo");
 		
-		WebElement usernameTxt = driver.findElement(By.cssSelector("body > form > input[type=text]:nth-child(1)"));
-		WebElement passwordTxt = driver.findElement(By.cssSelector("body > form > input[type=password]:nth-child(3)"));
-		WebElement bottone = driver.findElement(By.cssSelector("body > form > input[type=submit]:nth-child(5)"));
+		WebElement usernameTxt = driver.findElement(By.cssSelector("body > div.container > form > input[type=text]:nth-child(1)"));
+		WebElement passwordTxt = driver.findElement(By.cssSelector("body > div.container > form > input[type=password]:nth-child(3)"));
+		WebElement bottone = driver.findElement(By.cssSelector("body > div.container > form > input[type=submit]:nth-child(5)"));
 
+		System.out.println(driver.getTitle());
 		
 		usernameTxt.sendKeys("mauro");
-		passwordTxt.sendKeys("1234");
+		passwordTxt.sendKeys("12345");
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
