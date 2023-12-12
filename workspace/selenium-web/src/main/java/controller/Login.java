@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/logindemo")
+@WebServlet({"/logindemo", "/login"})
 public class Login extends HttpServlet {
 	
 	
@@ -17,7 +17,17 @@ public class Login extends HttpServlet {
 
 		//response.getWriter().print("funge");
 		//response.sendRedirect("login.jsp");
-		request.getRequestDispatcher("login.jsp").forward(request, response);
+		
+		//inclusione header
+		request.setAttribute("titolo", "Login Page");
+		request.getRequestDispatcher("header.jsp").include(request, response);
+		
+		//inclusione di content
+		request.getRequestDispatcher("login.jsp").include(request, response);
+		
+		//inclusione di footer
+		request.getRequestDispatcher("footer.jsp").include(request, response);
+
 	}
 	
 	@Override
