@@ -27,6 +27,7 @@ public class MagazzinoPage {
 		
 		
 		System.out.println(driver.getTitle());
+		System.out.println(driver.getCurrentUrl());
 		
 		List<WebElement> intestazioni = driver.findElements(By.xpath("/html/body/div/table/thead/tr"));
 		List<WebElement> righeTabella = driver.findElements(By.xpath("/html/body/div/table/tbody/tr"));
