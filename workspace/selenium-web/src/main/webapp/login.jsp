@@ -1,7 +1,7 @@
 
 	<h1>Login</h1>
 
-	<form action="logindemo" method="post">
+	<form action="login" method="post">
 	
 		<input type="text" name="username" placeholder="username">
 		<br>

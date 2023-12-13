@@ -33,3 +33,48 @@
    
   </tbody>
 </table>
+<button id="btn">Scarica prodotti</button>
+
+<script>
+
+	const TABLE = document.querySelector(".table > tbody")
+	const BTN = document.getElementById('btn')
+	
+	BTN.onclick = function(){
+			fetch('https://fakestoreapi.com/products')
+		.then(response => response.json())
+		.then(prodotti => {
+			
+			for (prodotto of prodotti){
+				const IMG = document.createElement('img')
+				IMG.setAttribute('src', prodotto.image)
+				document.body.append(IMG)
+				console.log(prodotto)
+			}
+			
+		})
+	}
+	
+	
+	
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

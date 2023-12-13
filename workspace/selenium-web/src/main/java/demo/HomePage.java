@@ -24,8 +24,10 @@ public class HomePage {
 //		driver.get("https://github.com/maboglia/Fondamenti/blob/master/022_DOM.md");
 		driver.get("http://localhost:8080/selenium-web/home");
 		
+		String expectedTitle = "Home Page";
+		String actualTitle = driver.getTitle();
 		
-		System.out.println(driver.getTitle());
+		System.out.println("E' il titolo che ti aspettavi? " + expectedTitle.equals(actualTitle));
 		
 		driver.quit();
 		
