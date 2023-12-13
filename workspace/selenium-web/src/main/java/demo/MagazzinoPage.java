@@ -36,7 +36,7 @@ public class MagazzinoPage {
 			System.out.println(riga.getText());
 		}
 		
-		((JavascriptExecutor) driver).executeScript("alert('funge')", "ciao");
+		((JavascriptExecutor) driver).executeScript("alert(arguments[0])", "ciao");
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		wait.until(ExpectedConditions.alertIsPresent());
