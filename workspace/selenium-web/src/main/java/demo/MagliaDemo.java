@@ -2,6 +2,7 @@ package demo;
 
 import java.util.List;
 
+import model.Colore;
 import model.Maglia;
 
 public class MagliaDemo {
@@ -9,9 +10,9 @@ public class MagliaDemo {
 	public static void main(String[] args) {
 		
 
-		Maglia m1 = new Maglia(10, "I love you", "rosso", 42);
-		Maglia m2 = new Maglia(10, "I love you", "rosso", 44);
-		Maglia m3 = new Maglia(10, "I love you", "rosso", 40);;
+		Maglia m1 = new Maglia(10, "I love you", Colore.ROSSO, 42);
+		Maglia m2 = new Maglia(10, "I love you", Colore.BLU, 44);
+		Maglia m3 = new Maglia(10, "I love you", Colore.VERDE, 40);;
 		
 		List<Maglia> maglie = List.of(m1,m2,m3);
 		

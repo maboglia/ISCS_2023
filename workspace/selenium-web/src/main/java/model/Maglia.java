@@ -7,15 +7,19 @@ public class Maglia implements Comparable<Maglia> {
 	
 	private double prezzo;
 	private String scritta;
-	private String colore;
+	private Colore colore;
 	private int taglia;
+	private Taglia siglaTaglia;
+	
+	
 	
 	public Maglia() {
 		// TODO Auto-generated constructor stub
+		
 	}
 	
 	
-	public Maglia(double prezzo, String scritta, String colore, int taglia) {
+	public Maglia(double prezzo, String scritta, Colore colore, int taglia) {
 		super();
 		this.prezzo = prezzo;
 		this.scritta = scritta;
@@ -35,12 +39,27 @@ public class Maglia implements Comparable<Maglia> {
 	public void setScritta(String scritta) {
 		this.scritta = scritta;
 	}
-	public String getColore() {
+	
+	public Colore getColore() {
 		return colore;
 	}
-	public void setColore(String colore) {
+
+
+	public void setColore(Colore colore) {
 		this.colore = colore;
 	}
+
+
+	public Taglia getSiglaTaglia() {
+		return siglaTaglia;
+	}
+
+
+	public void setSiglaTaglia(Taglia siglaTaglia) {
+		this.siglaTaglia = siglaTaglia;
+	}
+
+
 	public int getTaglia() {
 		return taglia;
 	}
