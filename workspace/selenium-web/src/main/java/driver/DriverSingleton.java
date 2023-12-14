@@ -23,6 +23,10 @@ public class DriverSingleton {
 		
 	}
 	
+	public static WebDriver getDriver() {
+		return driver;
+	}
+	
 	public static DriverSingleton getInstance(String driver) {
 		
 		if (instance == null) {
@@ -32,5 +36,9 @@ public class DriverSingleton {
 		return instance;
 	}
 	
+	public static void quitDriver() {
+		instance = null;
+		driver.quit();
+	}
 	
 }

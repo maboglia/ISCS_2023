@@ -11,12 +11,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import driver.DriverSingleton;
+import utils.Costanti;
+
 public class HomePage {
 
 	public static void main(String[] args) {
 		
-		WebDriver driver = new ChromeDriver();
+//		WebDriver driver = new ChromeDriver();
+		DriverSingleton.getInstance(Costanti.CHROME);
 
+		WebDriver driver = DriverSingleton.getDriver();
+		
 		//setto la propr di sistema
 		//System.setProperty("webdriver.chrome.driver", "chromedriver");
 		
