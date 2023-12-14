@@ -28,7 +28,7 @@ public class HomePage {
 		
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //		driver.get("https://github.com/maboglia/Fondamenti/blob/master/022_DOM.md");
-		driver.get("http://localhost:8080/selenium-web/home");
+		driver.get(Costanti.HOME_PAGE);
 		
 		String expectedTitle = "Home Page";
 		String actualTitle = driver.getTitle();
