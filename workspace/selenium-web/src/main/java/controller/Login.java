@@ -40,6 +40,7 @@ public class Login extends HttpServlet {
 			
 			if (username.equals("mauro") && password.equals("12345")) {
 				System.out.println("sei loggato");
+				response.sendRedirect("magazzino");
 				
 			} else {
 				System.out.println("non sei loggato");
