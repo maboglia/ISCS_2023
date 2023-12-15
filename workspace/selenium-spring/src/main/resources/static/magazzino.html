@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<ul id="lista"></ul>
+
+
+<script>
+	
+	const URL = "api/prova"
+	
+	fetch(URL)
+		.then(res => res.json())
+		.then(maglie => {
+			
+			for (maglia of maglie){
+				const LI = document.createElement("li")
+				LI.textContent = maglia.scritta
+				document.getElementById("lista").append(LI)
+			}
+			
+		})
+	
+</script>
+
+</body>
+</html>
