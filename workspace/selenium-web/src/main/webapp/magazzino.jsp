@@ -1,4 +1,4 @@
-<%@page import="com.boglia.model.Maglia"%>
+<%@page import="model.Maglia"%>
 <%@page import="java.util.List"%>
 <table class="table">
   <thead>
