@@ -7,7 +7,106 @@
 <body>
 
 	<h1 th:text="${titolo}">Titolo generico</h1>
+
+	<select name="" id="tendina">
+
+	</select>
 	
-	
+	<table id="tabella">
+		<thead>
+			<tr>
+				<th>Prodotto</th>
+				<th>Prezzo</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+
+<script>
+
+	const TABELLA = document.querySelector('#tabella > tbody');
+	const TENDINA = document.getElementById('tendina')
+	const URL = 'https://fakestoreapi.com/products'
+
+	document.body.onload = function () {
+		
+		const VOCI = []
+
+		fetch(URL)//request async
+			.then(res => res.json())//allora succede che: 
+			.then(prodotti => {
+				for (p of prodotti){
+					const TITOLO = p.title
+					const PREZZO = p.price
+				
+					const TR = document.createElement('tr')
+					const TD1 = document.createElement('td')
+					const TD2 = document.createElement('td')
+					TD1.textContent = TITOLO
+					TD2.textContent = PREZZO
+					
+					TR.append(TD1, TD2)
+
+					VOCI.push(p.category)
+
+					
+
+					TABELLA.append(TR)
+					console.log(TITOLO);
+					console.log(PREZZO);
+				
+				}
+
+				const mioSet = new Set(VOCI)
+
+				for (const voce of mioSet) {
+					const OPTION = document.createElement('option')
+					OPTION.textContent = voce
+					TENDINA.append(OPTION)
+				}
+
+				TENDINA.onchange = function () {
+					console.log(TENDINA.value);
+
+					fetch(URL + '/category/' + TENDINA.value)
+						.then(res => res.json())
+						.then(prodotti => {
+
+							TABELLA.innerHTML = '' //svuota la tabella
+
+							for (const p of prodotti) {
+								
+								const TR = document.createElement('tr')
+								const TD1 = document.createElement('td')
+								const TD2 = document.createElement('td')
+								TD1.textContent = TITOLO
+								TD2.textContent = PREZZO
+								
+								TR.append(TD1, TD2)	
+
+
+
+							}
+ 
+
+
+
+						})
+
+				}
+
+
+			})
+
+
+
+
+	}
+
+</script>
+
+
 </body>
 </html>

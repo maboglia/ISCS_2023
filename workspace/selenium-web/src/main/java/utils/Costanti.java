@@ -12,5 +12,6 @@ public class Costanti {
 	public static final String HOME_PAGE = SERVER_ADDRESS + "/home";
 	public static final String LOGIN_PAGE = SERVER_ADDRESS + "/login";
 	public static final String MAGAZZINO_PAGE = SERVER_ADDRESS + "/magazzino";
+	public static final String PRODOTTI_PAGE = SERVER_ADDRESS + "/prodotti";
 	
 }
