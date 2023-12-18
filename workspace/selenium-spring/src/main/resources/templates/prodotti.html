@@ -77,6 +77,8 @@
 							TABELLA.innerHTML = '' //svuota la tabella
 
 							for (const p of prodotti) {
+								const TITOLO = p.title
+								const PREZZO = p.price								
 								
 								const TR = document.createElement('tr')
 								const TD1 = document.createElement('td')
@@ -86,7 +88,7 @@
 								
 								TR.append(TD1, TD2)	
 
-
+								TABELLA.append(TR)
 
 							}
  

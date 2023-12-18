@@ -37,7 +37,7 @@ public class ProdottiPageTest {
 	}
 	
 	@Test
-	public void testRigheTabella() {
+	public void testZuRigheTabella() {
 		
 		int numRigheAttese = 20;
 		List<WebElement> righeTabella = driver.findElements(By.xpath("//*[@id=\"tabella\"]/tbody/tr"));
@@ -54,14 +54,14 @@ public class ProdottiPageTest {
 		//uso la classe select di selenium
 		Select select = new Select(tendina);
 		
-		//select.selectByIndex(2);
+		select.selectByIndex(2);
 		
 		WebElement primo = select.getFirstSelectedOption();
 		System.out.println(primo.getText());
 		Assertions.assertTrue(voceAttesa.equals(primo.getText()));
 	}
 	
-	//@AfterAll
+	@AfterAll
 	public static void disconnect() {
 		System.out.println("chiudo il driver");
 		DriverSingleton.quitDriver();
