@@ -7,12 +7,14 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import demo.HomePage;
 import driver.DriverSingleton;
 import utils.Costanti;
 
 public class HomePageTest {
 	
 	static WebDriver driver;
+	static HomePage homePage;
 	
 	@BeforeAll
 	public static void init() {
@@ -20,6 +22,7 @@ public class HomePageTest {
 		DriverSingleton.getInstance(Costanti.CHROME);
 		driver =  DriverSingleton.getDriver();
 		driver.get(Costanti.HOME_PAGE);
+		homePage = new HomePage();
 
 	}
 	
@@ -32,6 +35,18 @@ public class HomePageTest {
 		Assertions.assertEquals(expectedTitle, actualTitle);
 	}
 	
+	@Test
+	public void testTitoloPagina() {
+		
+		System.out.println("Il titolo h1 della pagina è: " + homePage.getTitoloPagina().getText());
+		
+	}
+	
+	@Test
+	public void testMainButton() {
+		homePage.getBtnMainAction().click();
+		System.out.println(homePage.getBtnMainAction().getText());
+	}
 	
 	
 	@AfterAll

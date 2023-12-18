@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,6 +17,39 @@ import driver.DriverSingleton;
 import utils.Costanti;
 
 public class HomePage {
+	
+	private WebDriver driver;
+	
+	public HomePage() {
+		this.driver = DriverSingleton.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	@FindBy(css = "body > h1")
+	WebElement titoloPagina;
+	
+	@FindBy(xpath = "/html/body/div/main/section/div/div/p[2]/a[1]")
+	WebElement btnMainAction;
+	
+	
+	public WebElement getBtnMainAction() {
+		return btnMainAction;
+	}
+
+	public WebElement getTitoloPagina() {
+		return titoloPagina;
+	}
+
+
+
+
+	public void setTitoloPagina(WebElement titoloPagina) {
+		this.titoloPagina = titoloPagina;
+	}
+
+
+
 
 	public static void main(String[] args) {
 		
