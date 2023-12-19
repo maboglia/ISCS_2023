@@ -9,11 +9,30 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import driver.DriverSingleton;
+
 public class ProdottiPage {
 
+	private WebDriver driver;
+	
+	public ProdottiPage() {
+		this.driver = DriverSingleton.getDriver();
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	@FindBy(css = "#tabella > tbody > tr:nth-child(1) > td:nth-child(1) > a")
+	private WebElement linkProdotto;
+	
+	public WebElement getLinkProdotto() {
+		return linkProdotto;
+	}
+	
 	public static void main(String[] args) {
 		
 		WebDriver driver = new ChromeDriver();
