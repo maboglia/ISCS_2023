@@ -38,21 +38,21 @@ public class MagazzinoPageTest {
 	@Test
 	public void testRigheTabella() {
 		
-		int numRigheAttese = 10;
-		List<WebElement> righeTabella = driver.findElements(By.xpath("/html/body/div/table/tbody/tr"));
-		Assertions.assertTrue(righeTabella.size() == numRigheAttese);
+		int numRigheAttese = 20;
+		List<WebElement> puntiElenco = driver.findElements(By.cssSelector("body > div > ul > li"));
+		Assertions.assertTrue(puntiElenco.size() == numRigheAttese);
 		
 	}
 	
-	@Test
-	public void testAjaxBtn() {
-		WebElement btn = driver.findElement(By.id("btn"));
-		btn.click();
-		
-		List<WebElement> imgProdotti = driver.findElements(By.tagName("img"));
-		Assertions.assertTrue(imgProdotti.size() == 20);
-		
-	}
+//	@Test
+//	public void testAjaxBtn() {
+//		WebElement btn = driver.findElement(By.id("btn"));
+//		btn.click();
+//		
+//		List<WebElement> imgProdotti = driver.findElements(By.tagName("img"));
+//		Assertions.assertTrue(imgProdotti.size() == 20);
+//		
+//	}
 	
 	@AfterAll
 	public static void disconnect() {

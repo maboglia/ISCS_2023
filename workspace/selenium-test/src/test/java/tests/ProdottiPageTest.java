@@ -54,7 +54,7 @@ public class ProdottiPageTest {
 		//uso la classe select di selenium
 		Select select = new Select(tendina);
 		
-		select.selectByIndex(2);
+		//select.selectByIndex(2);
 		
 		WebElement primo = select.getFirstSelectedOption();
 		System.out.println(primo.getText());

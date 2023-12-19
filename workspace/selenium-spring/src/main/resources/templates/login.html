@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title th:text="${titolo}">Insert title here</title>
-</head>
+<head th:insert="header.html :: header"></head>
 <body>
+<div th:replace="header.html :: nav"></div>	
 <div class="container">
 	
 

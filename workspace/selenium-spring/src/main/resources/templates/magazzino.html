@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title th:text="${titolo}">Insert title here</title>
-</head>
+<head th:insert="header.html :: header"></head>
 <body>
-	
-	<h1 th:text="${titolo}">Titolo generico</h1>
-	
-	
-	<ul>
-		<li th:each="maglia : ${maglie}" th:text="${maglia.scritta}"></li>
-	</ul>
-	
-	
+<div th:replace="header.html :: nav"></div>	
+	<div class="container">
+
+		<h1 th:text="${titolo}">Titolo generico</h1>
+		
+		
+		<ul>
+			<li th:each="prodotto : ${prodotti}" th:text="${prodotto.title}"></li>
+		</ul>
+		
+		
+	</div>
 	
 </body>
 </html>

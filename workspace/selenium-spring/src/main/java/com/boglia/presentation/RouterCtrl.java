@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.boglia.model.Colore;
 import com.boglia.model.Maglia;
 import com.boglia.model.Prodotto;
+import com.boglia.services.ProdottiService;
 import com.google.gson.Gson;
 
 @Controller
@@ -42,10 +43,9 @@ public class RouterCtrl {
 	public String magazzino(Model m) {
 		m.addAttribute("titolo", "Magazzino Page");
 		
-		Maglia m1 = new Maglia(15, "W Eclipse", Colore.BLU, 48);
-		Maglia m2 = new Maglia(12, "Abbasso IntelliJ e Livio e PLant", Colore.VERDE, 46);
+		List<Prodotto> p = ProdottiService.getProdotti();
 
-		m.addAttribute("maglie", List.of(m1, m2));
+		m.addAttribute("prodotti", p);
 		
 		return "magazzino";
 	}
@@ -53,45 +53,16 @@ public class RouterCtrl {
 	@GetMapping("prodotti")
 	public String prodotti(Model m) {
 		m.addAttribute("titolo", "Prodotti Page");
+		
+		
+		
 		return "prodotti";
 	}
 
 	@GetMapping("prodotti/{id}")
 	public String prodotto(@PathVariable int id,Model m) {
 		
-		HttpURLConnection connection;
-		StringBuilder sb = new StringBuilder(); 
-		BufferedReader reader;
-		String riga;
-		try {
-			URL url = new URL("https://fakestoreapi.com/products/" + id);
-			connection = (HttpURLConnection) url.openConnection();
-			
-			connection.setRequestMethod("GET");
-			connection.setConnectTimeout(3000);
-			connection.setReadTimeout(3000);
-			int status = connection.getResponseCode();
-			
-			System.out.println(status);
-			
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			
-			while ((riga = reader.readLine()) != null) {
-				sb.append(riga);
-			}
-			reader.close();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//System.out.println(sb.toString());
-		
-		Gson gson = new Gson();
-		Prodotto p = gson.fromJson(sb.toString(), Prodotto.class);
+		Prodotto p = ProdottiService.getProdotto(id);
 		
 		//System.out.println(p);
 		
