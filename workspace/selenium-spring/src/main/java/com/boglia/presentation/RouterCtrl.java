@@ -5,13 +5,15 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.boglia.model.Colore;
 import com.boglia.model.Maglia;
 
 @Controller
-@RequestMapping("mvc")
+@RequestMapping(path = {"/", "mvc"})
 public class RouterCtrl {
 
 	
@@ -43,6 +45,16 @@ public class RouterCtrl {
 	public String prodotti(Model m) {
 		m.addAttribute("titolo", "Prodotti Page");
 		return "prodotti";
+	}
+	
+	@PostMapping("login")
+	public String doLogin(@RequestParam String username, @RequestParam String password ) {
+		
+		if (username.equals("mauro")&& password.equals("12345")) {
+			return "redirect:magazzino";
+		}
+		return "redirect:login";
+		
 	}
 	
 }

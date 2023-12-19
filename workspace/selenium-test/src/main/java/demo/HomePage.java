@@ -26,7 +26,7 @@ public class HomePage {
 	}
 	
 	
-	@FindBy(css = "body > h1")
+	@FindBy(css = "body > div > h1")
 	WebElement titoloPagina;
 	
 	@FindBy(xpath = "/html/body/div/main/section/div/div/p[2]/a[1]")

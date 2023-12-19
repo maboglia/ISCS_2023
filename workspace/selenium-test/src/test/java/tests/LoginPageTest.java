@@ -6,12 +6,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
+import demo.LoginPage;
 import driver.DriverSingleton;
 import utils.Costanti;
 
 public class LoginPageTest {
 	
 	static WebDriver driver;
+	static LoginPage loginPage;
 	
 	@BeforeAll
 	public static void init() {
@@ -19,7 +21,7 @@ public class LoginPageTest {
 		DriverSingleton.getInstance(Costanti.CHROME);
 		driver =  DriverSingleton.getDriver();
 		driver.get(Costanti.LOGIN_PAGE);
-
+		loginPage = new LoginPage();
 	}
 	
 	@Test
@@ -31,7 +33,16 @@ public class LoginPageTest {
 		Assertions.assertEquals(expectedTitle, actualTitle);
 	}
 	
-	
+	@Test
+	public void doLogin() {
+		
+		loginPage.getUsernameTxt().sendKeys("mauro");
+		loginPage.getPasswordTxt().sendKeys("12345");
+		loginPage.getBtnLogin().click();
+		
+		System.out.println(driver.getTitle());
+		
+	}
 	
 	@AfterAll
 	public static void disconnect() {
