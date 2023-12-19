@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import demo.HomePage;
 import driver.DriverSingleton;
 import utils.Costanti;
+import utils.Utile;
 
 public class HomePageTest {
 	
@@ -39,7 +40,7 @@ public class HomePageTest {
 	public void testTitoloPagina() {
 		
 		System.out.println("Il titolo h1 della pagina è: " + homePage.getTitoloPagina().getText());
-		
+		Assertions.assertTrue(Utile.printScreen());
 	}
 	
 	@Test
