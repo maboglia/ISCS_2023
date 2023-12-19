@@ -44,7 +44,10 @@
 					const TR = document.createElement('tr')
 					const TD1 = document.createElement('td')
 					const TD2 = document.createElement('td')
-					TD1.textContent = TITOLO
+					const LINK = document.createElement('a')
+					LINK.setAttribute('href', '/prodotti/'+p.id)
+					LINK.textContent = TITOLO
+					TD1.append(LINK)
 					TD2.textContent = PREZZO
 					
 					TR.append(TD1, TD2)
