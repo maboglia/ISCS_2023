@@ -1,7 +1,10 @@
+![Logo](logo-icon.png)![Logo](logo-text.png)
+
 # Academy ISCS
 
-### Coming soon 
+## Siamo in pausa!
 
-![Logo](logo-icon.png)![Logo](logo-text.png)
+### Coming soon :)
+
 
 #### Codice corso 119PROTD2384576_TESTING
